@@ -22,6 +22,7 @@
     <ClInclude Include="Date.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Class and Object_3.cpp" />
     <ClCompile Include="Date.cpp" />
     <ClCompile Include="Test.cpp" />
   </ItemGroup>

@@ -1,2 +1,6 @@
-﻿  Test.cpp
+﻿  Class and Object_3.cpp
+D:\C++ project\Class and Object\Class and Object_3.cpp(240,8): warning C4240: 使用了非标准扩展: 对“A::B”的访问现在被定义为“public”，而以前被定义为“private”
+      D:\C++ project\Class and Object\Class and Object_3.cpp(230,8):
+      参见“A::B”的声明
+  
   Class and Object.vcxproj -> D:\C++ project\Class and Object\x64\Debug\Class and Object.exe

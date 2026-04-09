@@ -30,8 +30,8 @@ void test02()
 
 	cout << d1 << d2;
 }
-int main()
-{
-	test01();
-	//test02();
-}
+//int main()
+//{
+//	test01();
+//	//test02();
+//}
