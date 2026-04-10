@@ -223,46 +223,74 @@
 
 //内部类
 
+//#include<iostream>
+//using namespace std;
+//class A
+//{
+//	class B;
+//	friend void Func(const A& aa, const A::B& _bb);
+//	public:
+//	A(int a1,int a2)
+//		: _a1(a1),_a2(a2)
+//	{ }
+//	void Print()
+//	{
+//		cout << _a1 << ' ' << _a2 << endl;
+//	}
+//	class B
+//	{
+//		friend void Func(const A& aa, const B& bb);
+//	public:
+//		B(int b1, int b2)
+//			: _b1(b1), _b2(b2)
+//		{
+//		}
+//	private:
+//		int _b1;
+//		int _b2;
+//	};
+//private:
+//	int _a1;
+//	int _a2;
+//};
+//void Func(const A& aa, const A::B& bb)
+//{
+//	cout << aa._a1 << ' ' << aa._a2 << endl;
+//	cout << bb._b1 << ' ' << bb._b2 << endl;
+//}
+//int main()
+//{
+//	A aa(1, 2);
+//	A::B bb(2, 3);
+//	aa.Print();
+//	Func(aa, bb);
+//	return 0;
+//}
+
+
 #include<iostream>
 using namespace std;
 class A
 {
-	class B;
-	friend void Func(const A& aa, const A::B& _bb);
-	public:
-	A(int a1,int a2)
-		: _a1(a1),_a2(a2)
-	{ }
-	void Print()
+public:
+	A(int a)
+		: _a(a)
 	{
-		cout << _a1 << ' ' << _a2 << endl;
+		cout << "A(int a)" << endl;
 	}
-	class B
+	~A()
 	{
-		friend void Func(const A& aa, const B& bb);
-	public:
-		B(int b1, int b2)
-			: _b1(b1), _b2(b2)
-		{
-		}
-	private:
-		int _b1;
-		int _b2;
-	};
+		cout << "~A()" << endl;
+	}
 private:
-	int _a1;
-	int _a2;
+	int _a;
 };
-void Func(const A& aa, const A::B& bb)
-{
-	cout << aa._a1 << ' ' << aa._a2 << endl;
-	cout << bb._b1 << ' ' << bb._b2 << endl;
-}
 int main()
 {
-	A aa(1, 2);
-	A::B bb(2, 3);
-	aa.Print();
-	Func(aa, bb);
+	A aa1(1);
+	A aa2();//这里会看成函数调用
+
+	A aa2(1);
+	A (3);
 	return 0;
 }

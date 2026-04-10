@@ -1,6 +1,9 @@
 ﻿  Class and Object_3.cpp
-D:\C++ project\Class and Object\Class and Object_3.cpp(240,8): warning C4240: 使用了非标准扩展: 对“A::B”的访问现在被定义为“public”，而以前被定义为“private”
-      D:\C++ project\Class and Object\Class and Object_3.cpp(230,8):
-      参见“A::B”的声明
+D:\C++ project\Class and Object\Class and Object_3.cpp(290,4): error C2512: “A”: 没有合适的默认构造函数可用
+      D:\C++ project\Class and Object\Class and Object_3.cpp(273,7):
+      参见“A”的声明
   
-  Class and Object.vcxproj -> D:\C++ project\Class and Object\x64\Debug\Class and Object.exe
+D:\C++ project\Class and Object\Class and Object_3.cpp(293,4): error C2365: “aa2”: 重定义；以前的定义是“函数”
+      D:\C++ project\Class and Object\Class and Object_3.cpp(291,4):
+      参见“aa2”的声明
+  
