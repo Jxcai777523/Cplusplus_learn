@@ -13,7 +13,7 @@ public:
 	void Print();
 	int Getmonth_day(int year, int month)//默认内联函数，频繁调用的短小函数不会建立栈帧
 	{
-		static int days[] = { 31,31,28,31,30,31,30,31,31,30,31,30,31 };
+		static int days[] = { 0,31,28,31,30,31,30,31,31,30,31,30,31 };
 		if (month == 2 && ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0))
 			return 29;
 		return days[month];
