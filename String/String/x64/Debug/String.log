@@ -1,27 +1,17 @@
-﻿  test.cpp
-D:\C++ project\String\test.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+﻿  string.cpp
+D:\C++ project\String\string.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 D:\C++ project\String\string.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-  (编译源文件“test.cpp”)
+  (编译源文件“string.cpp”)
   
-D:\C++ project\String\string.h(39,12): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
-  (编译源文件“test.cpp”)
+D:\C++ project\String\string.h(40,12): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+  (编译源文件“string.cpp”)
   
-D:\C++ project\String\string.h(55,12): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
-  (编译源文件“test.cpp”)
+D:\C++ project\String\string.h(56,12): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+  (编译源文件“string.cpp”)
   
-D:\C++ project\String\string.h(78,11): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
-  (编译源文件“test.cpp”)
-  
-D:\C++ project\String\string.h(82,11): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
-  (编译源文件“test.cpp”)
-  
-D:\C++ project\String\string.h(86,11): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
-  (编译源文件“test.cpp”)
-  
-D:\C++ project\String\string.h(94,14): warning C4305: “=”: 从“int”到“char”截断
-  (编译源文件“test.cpp”)
-  
-D:\C++ project\String\string.h(94,14): warning C4309: “=”: 截断常量值
-  (编译源文件“test.cpp”)
-  
+D:\C++ project\String\string.cpp(48,11): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\C++ project\String\string.cpp(122,14): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\C++ project\String\string.cpp(149,14): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\C++ project\String\string.cpp(163,11): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\C++ project\String\string.cpp(169,14): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
   String.vcxproj -> D:\C++ project\String\x64\Debug\String.exe
