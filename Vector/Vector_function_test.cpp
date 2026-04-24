@@ -132,15 +132,41 @@ void test_vector8()
 	}
 	v.clear();
 }
-int main()
-{	
-	//test_vector1();
-	//test_vector2();
-	//test_vector3();
-	//test_vector4();
-	//test_vector5(); 
-	//test_vector6();
-	/*test_vector7();*/
-	test_vector8();
-	return 0;
+//展示一下二维数组
+void test_vector9()
+{
+	/*vector<int> v1(5, 1);
+	vector<vector<int>> v2(4, v1);
+	for (int i = 0;i < 4;i++)
+	{
+		for (int j = 0;j < 5;j++)
+		{
+			cout << v2[i][j] << ' ';
+		}
+		cout << endl;
+	}*/
+
+	vector<int> v(5, 7);
+	vector <vector<int>> vv(7, v);
+	for (int i = 0;i < vv.size();i++)
+	{
+		for (int j = 0;j < vv[i].size();j++)//可能每行的列数不同
+		{
+			cout << vv[i][j] << ' ';
+		}
+		cout << endl;
+	}
 }
+//int main()
+//{	
+//	//test_vector1();
+//	//test_vector2();
+//	//test_vector3();
+//	//test_vector4();
+//	//test_vector5(); 
+//	//test_vector6();
+//	/*test_vector7();*/
+//	/*test_vector8();*/
+//	test_vector9();
+//	return 0;
+//}

@@ -18,5 +18,13 @@
     <ClCompile Include="Vector_function_test.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Test_Myvector.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Vector.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
