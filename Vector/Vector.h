@@ -1,6 +1,7 @@
 #pragma once
 #include<iostream>
 #include<assert.h>
+#include<string>
 #include<stdbool.h>
 using namespace std;
 
@@ -17,6 +18,57 @@ namespace mine
 			_finish(nullptr),
 			_end_of_storage(nullptr)
 		{}
+		vector(const vector<T>& v)
+		{
+			reserve(v.size());
+			for (auto& it : v)//使用引用是为了防止多次拷贝
+			{
+				push_back(it);
+			}
+		}
+		//可以使用其他类型的迭代器，将数据放入vector中
+		template <class InputIterator>
+		vector(InputIterator first, InputIterator last)
+		{
+			InputIterator in = first;
+			while (in != last)
+			{
+				push_back(*in);
+				in++;
+			}
+		}
+		vector(int n, const T& val = T())
+		{
+			for (size_t i = 0;i < n;i++)
+			{
+				push_back(val);
+			}
+		}
+
+		void swap(vector<T>& v)
+		{
+			std::swap(_start, v._start);
+			std::swap(_finish, v._finish);
+			std::swap(_end_of_storage, v._end_of_storage);
+		}
+		//v1=v2
+		vector<T>& operator=(const vector<T>& v)
+		{
+			if (this != &v)
+			{
+				vector<T> tmp(v);   // 拷贝构造
+				swap(tmp);          // 交换内部指针
+			}
+			return *this;
+		}
+		~vector()
+		{
+			if (_start)
+			{
+				delete[] _start;
+				_start = _finish = _end_of_storage = nullptr;
+			}
+		}
 		size_t size() const
 		{
 			return _finish - _start;
@@ -31,16 +83,9 @@ namespace mine
 		}
 		void shrink_to_fit()
 		{
-			if (capacity > size())
+			if (capacity() > size())
 			{
 				_end_of_storage = _finish;
-			}
-		}
-		void resize(size_t n, T val = T())
-		{
-			if (n > capacity())
-			{
-
 			}
 		}
 		void reserve(size_t n)
@@ -49,7 +94,11 @@ namespace mine
 			{
 				T* tmp = new T[n];
 				size_t old_size = size();
-				memcpy(tmp, _start, size()*sizeof(T));//逐字节拷贝
+				/*memcpy(tmp, _start, size()*sizeof(T));*///逐字节拷贝
+				for (int i = 0;i < old_size;i++)
+				{
+					tmp[i] = _start[i];
+				}
 				delete[] _start;
 				_start = tmp;
 				//_finish = tmp + size();//这里的_start已经指向了新空间了，调用size()会出现问题
@@ -57,6 +106,42 @@ namespace mine
 				_finish = tmp + old_size;
 				_end_of_storage = _start + n;
 			}
+		}
+		void resize(size_t n, T val = T())
+		{
+			if (n <size())
+			{
+				_finish = _start + n;
+			}
+			else
+			{
+				reserve(n);
+				while (_finish < _end_of_storage)
+				{
+					*(_finish++) = val;
+				}
+			}
+		}
+		iterator insert(iterator pos, const T& val)
+			//这里的pos指向的是原对象，如果进行了扩容，那么就会产生错误
+			//所以我们需要存储pos位置在顺序表中的相对位置
+		{
+			assert(pos >= _start&& pos <= _finish);
+			if (size() == capacity())
+			{
+				size_t len = pos - _start;
+				reserve(capacity() == 0 ? 4 : 2 * capacity());
+				pos = _start + len;
+			}
+			iterator end = _finish-1;//_finish指向的最后一个元素的最后一个字节
+			while (end > pos)
+			{
+				*(end+1) = *end;
+				end--;
+			}
+			*pos = val;
+			_finish++;
+			return pos;
 		}
 		void push_back(const T& val)//防止当T为非内置类型时，进行多次拷贝所以采用引用
 		{
@@ -70,6 +155,22 @@ namespace mine
 		{
 			assert(size());
 			_finish--;
+		}
+		iterator erase(iterator pos)
+		{
+			assert(pos < _finish && pos >= _start);
+			iterator it = pos;
+			while (it < _finish)
+			{
+				*it = *(it + 1);
+				it++;
+			}
+			_finish--;
+			return pos;
+		}
+		void clear()
+		{
+			_finish = _start;
 		}
 		T& operator[](size_t n)
 		{
@@ -107,4 +208,34 @@ namespace mine
 		//int _size;
 		//int _capacity;
 	};
+	//我们尝试写一个打印的
+	/*void print_vector(const vector<int>& v)
+	{
+		vector<int>::const_iterator it = v.begin();
+		while (it != v.end())
+		{
+			cout << *it << " ";
+			++it;
+		}
+		cout << endl;
+		for (auto e : v)
+		{
+			cout << e << " ";
+		}
+		cout << endl;
+	}*/
+	//我们发现上面的函数只能实现vector<int>,那我们尝试和写一个函数模板
+	template<class T>
+	void print_vector(const vector<T>& v)
+	{
+		//类模板没有实例化时不要取类中的成员，编译器编译时不知道是类型还是静态成员变量，除非加上typename
+		typename vector<T>::const_iterator it = v.begin();
+		while (it != v.end())
+		{
+			cout << *it << ' ';
+			it++;
+		}
+		cout << endl;
+	}
+	
 }
