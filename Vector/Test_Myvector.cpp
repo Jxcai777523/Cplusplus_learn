@@ -65,7 +65,7 @@ void test4()
 		it++;
 	}
 	cout << endl;
-	v.erase(v.begin());
+	v.erase(v.end());
 	for (auto it : v)
 	{
 		cout << it << ' ';
@@ -103,9 +103,9 @@ void test7()
 	vector<int> v1 = v;
 	mine::print_vector(v1);
 }
-int main()
-{
-	//test2();
-	//test4();
-	test7();
-}
+//int main()
+//{
+//	//test2();
+//	//test4();
+//	test4();
+//}

@@ -37,6 +37,14 @@ namespace mine
 				in++;
 			}
 		}
+
+		vector(size_t n, const T& val = T())
+		{
+			for (size_t i = 0;i < n;i++)
+			{
+				push_back(val);
+			}
+		}
 		vector(int n, const T& val = T())
 		{
 			for (size_t i = 0;i < n;i++)
@@ -80,13 +88,6 @@ namespace mine
 		bool empty() const
 		{
 			return size() == 0;
-		}
-		void shrink_to_fit()
-		{
-			if (capacity() > size())
-			{
-				_end_of_storage = _finish;
-			}
 		}
 		void reserve(size_t n)
 		{
@@ -134,7 +135,7 @@ namespace mine
 				pos = _start + len;
 			}
 			iterator end = _finish-1;//_finish指向的最后一个元素的最后一个字节
-			while (end > pos)
+			while (end >= pos)
 			{
 				*(end+1) = *end;
 				end--;
@@ -158,9 +159,9 @@ namespace mine
 		}
 		iterator erase(iterator pos)
 		{
-			assert(pos < _finish && pos >= _start);
+			assert(pos <= _finish && pos >= _start);
 			iterator it = pos;
-			while (it < _finish)
+			while (it != _finish-1)
 			{
 				*it = *(it + 1);
 				it++;

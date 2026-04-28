@@ -36,7 +36,7 @@ void test_vector3()
 //reserve和resize
 void test_vector4()
 {
-	//在vs编译器中reserve以及resize的逻辑都是大的扩容小的不进行操作
+	//在vs编译器中reserve以及resize的逻辑都是大的扩容
 	vector<int> v1(10,1);
 	cout << v1.capacity() << endl;
 	v1.reserve(100);//扩容
@@ -57,8 +57,9 @@ void test_vector4()
 
 	vector<int> v4(10, 1);
 	cout << v4.capacity() << endl;
-	v4.resize(5);//不扩容
+	v4.resize(5);//不扩容,但是改变size
 	cout << v4.capacity() << endl;
+	cout << v4.size() << endl;
 }
 void test_vector5()
 {
@@ -157,16 +158,23 @@ void test_vector9()
 		cout << endl;
 	}
 }
-//int main()
-//{	
-//	//test_vector1();
-//	//test_vector2();
-//	//test_vector3();
-//	//test_vector4();
-//	//test_vector5(); 
-//	//test_vector6();
-//	/*test_vector7();*/
-//	/*test_vector8();*/
-//	test_vector9();
-//	return 0;
-//}
+void test_vector10()
+{
+	vector<int> v(5, 1);
+	cout << v.at(6);
+
+}
+int main()
+{	
+	//test_vector1();
+	//test_vector2();
+	//test_vector3();
+	//test_vector4();
+	//test_vector5(); 
+	//test_vector6();
+	/*test_vector7();*/
+	/*test_vector8();*/
+	//test_vector9();
+	test_vector9();
+	return 0;
+}
