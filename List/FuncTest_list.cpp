@@ -182,14 +182,14 @@ void list_test7()
 	}
 	cout << endl;
 }
-int main()
-{
-	//list_test1();
-	//list_test2();
-	//list_test3();
-	//list_test4();
-	//list_test5();
-	//list_test6();
-	list_test7();
-	return 0;
-}
+//int main()
+//{
+//	//list_test1();
+//	//list_test2();
+//	//list_test3();
+//	//list_test4();
+//	//list_test5();
+//	//list_test6();
+//	list_test7();
+//	return 0;
+//}
